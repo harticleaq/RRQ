@@ -1,0 +1,25 @@
+# --- Defaults ---
+
+# --- pymarl options ---
+runner: "episode" # Runs 1 env for an episode
+seed: 2 # Training seed
+alg: "rrq" # Algorithm name
+mac: "basic_mac" # Basic controller
+env: "sc2" # Environment name
+env_args: {} # Arguments for the environment
+evaluate_interval: 5000 # Test after {} timesteps have passed
+test_greedy: True # Use greedy evaluation (if False, will set epsilon floor to 0
+n_steps: 2000000 # Stop running after this many timesteps
+device: "cuda" # Use gpu by default unless it isn't available
+
+# --- Logging options ---
+save_model: True # Save the models to disk
+checkpoint_path: "" # Load a checkpoint from this path
+evaluate: False # Evaluate model for test_nepisode episodes and quit (no training)
+load_step: 0 # Load model trained on this many timesteps (0 if choose max possible)
+save_replay: False # Saving the replay of the model loaded from checkpoint_path
+local_results_path: "results" # Path for local results
+evaluate_pochs: 32 # Evaluate interval
+load_model: False # If load model
+round: 4 # Training round
+
