@@ -80,8 +80,8 @@ class POLICY:
         avail_u: [B,T,N,A]
         mask: [B,T] (0/1)
         """
-        coef = 0.1          # KL 蒸馏权重（0.05~0.5 常见）
-        tau = 2.0           # 温度（1~5 常见）
+        coef = 0.1          # 0.05~0.5 
+        tau = 2.0           # 1~5 
         hcoef = 0.01  
 
         B, T, N, A = q_student.shape
@@ -241,8 +241,6 @@ class POLICY:
         Qjoint_opt, _ = self.getQjoint(batch, hidden_eval, hidden_target, opt_onehot_eval, hat=True)
 
         q_individual = th.gather(q_evals, dim=-1, index=u).squeeze(-1)
-
-
 
         # construct RRQ and adv_weight
         advan_q = Qjoint - Qjoint_opt
